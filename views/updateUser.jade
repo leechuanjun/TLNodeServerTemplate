@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    h1 更新用户资料
+    form(method='post', action='/nwdLoan/users/updateUser')
+        div.form-row
+            label
+                span ID:
+                input(type='text',name='id')
+        div.form-row
+            label
+                span 用户名:
+                input(type='text',name='username')
+        div.form-row
+            label
+                span 密 码:
+                input(type='text',name='password')
+        div.form-row
+            label
+                span 手机号:
+                input(type='text',name='telephone')
+        div.form-row
+            input(type='submit')

@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/nwdLoan/users', users); // 自定义cgi路径 nwdLoan/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
