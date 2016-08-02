@@ -9,6 +9,18 @@ router.get('/', function(req, res, next) {
     res.render('updateUser');
 });
 
+//用户登录
+router.get('/login', function(req, res, next) {
+    userDao.login(req, res, next);
+});
+//用户注册
+router.get('/register', function(req, res, next) {
+    userDao.register(req, res, next);
+});
+
+
+
+
 
 // 增加用户
 //TODO 同时支持get,post
@@ -16,7 +28,6 @@ router.get('/addUser', function(req, res, next) {
     console.log('新增账号');
     userDao.add(req, res, next);
 });
-
 
 router.get('/queryAll', function(req, res, next) {
     console.log('查询所有账号');

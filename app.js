@@ -22,6 +22,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 输出日志到目录
+var fs = require('fs');
+var accessLogStream = fs.createWriteStream(__dirname + '/log/access.log', {flags: 'a',  encoding:'utf8'}); // 记得要先把目录建好，不然会报错
+app.use(logger('combined', {stream: accessLogStream}));
+
 app.use('/', routes);
 app.use('/nwdLoan/users', users); // 自定义cgi路径 nwdLoan/
 

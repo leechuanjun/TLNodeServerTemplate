@@ -5,7 +5,9 @@ var user = {
     update:'update account set userName=?, passWord=?, telephone=? where id=?',
     delete: 'delete from account where id=?',
     queryById: 'select * from account where id=?',
-    queryAll: 'select * from account'
+    queryAll: 'select * from account',
+    login: 'select id from account where telephone=? and passWord=?',
+    register: 'insert into account(userName, passWord, telephone) values(?,?,?)',
 };
 
 module.exports = user;
