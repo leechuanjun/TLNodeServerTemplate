@@ -59,28 +59,28 @@ module.exports = {
         pool.getConnection(function(err, connection) {
             // 获取前台页面传过来的参数
             var param = req.query || req.params;
-
+            if(param.password == null || param.telephone == null) {
+                jsonWrite(res, undefined);
+                return;
+            }
             // 建立连接，向表中插入值
             connection.query($sql.register, [param.username, param.password, param.telephone], function(err, result) {
                 if(result) {
-                  result = {
+                  res.json({
                       code: $network_macro.success,
                       result: {
                         desc: '注册成功'
                       }
-                  };
+                  });
                 }
                 else {
-                  result = {
+                  res.json({
                       code: $network_macro.failure,
                       result: {
                         desc: '注册失败'
                       }
-                  };
+                  });
                 }
-                // 以json形式，把操作结果返回给前台页面
-                jsonWrite(res, result);
-
                 // 释放连接
                 connection.release();
             });

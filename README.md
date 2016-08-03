@@ -19,3 +19,7 @@
   4. ID查询 http://localhost:3000/nwdLoan/users/query?id=1
 
   5. 修改 http://localhost:3000/nwdLoan/users，会返回一个页面。通过表单模拟一个post请求
+
+  6. 注册 http://localhost:3000/nwdLoan/users/register?username=licj&password=123456&telephone=13344444444
+
+  7. 登陆 http://localhost:3000/nwdLoan/users/login?&telephone=13344444444&password=123456
